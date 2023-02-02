@@ -69,7 +69,7 @@ public class LinkedListDeque<T> {
 
     /** Removes the first item in the deque and return it. */
     public T removeFirst() {
-        if (size == 0) {
+        if (isEmpty()) {
             return null;
         }
 
@@ -82,7 +82,7 @@ public class LinkedListDeque<T> {
 
     /** Removes the last item in the deque and return it. */
     public T removeLast() {
-        if (size == 0) {
+        if (isEmpty()) {
             return null;
         }
 

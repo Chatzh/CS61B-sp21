@@ -51,6 +51,10 @@ public class ArrayDeque<T> {
 
     /** Removes the first item in the deque and return it. */
     public T removeFirst() {
+        if (isEmpty()) {
+            return null;
+        }
+
         T x = items[0];
         T[] temp = (T[]) new Object[items.length];
         System.arraycopy(items, 1, temp, 0, size - 1);
@@ -61,9 +65,14 @@ public class ArrayDeque<T> {
 
     /** Removes the last item in the deque and return it. */
     public T removeLast() {
+        if (isEmpty()) {
+            return null;
+        }
+
         if ((size < items.length / 4) && (size > 8)) {
             resize(items.length / 4);
         }
+
         T x = items[size];
         items[size - 1] = null;
         size = size - 1;
