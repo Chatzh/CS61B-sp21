@@ -35,24 +35,24 @@ public class TestBuggyAList {
                 int randVal = StdRandom.uniform(0, 100);
                 L.addLast(randVal);
                 buggyL.addLast(randVal);
-                System.out.println("addLast(" + randVal + ")");
+                // System.out.println("addLast(" + randVal + ")");
             } else if (operationNumber == 1) {
                 // size
                 int size = L.size();
                 int buggySize = buggyL.size();
-                System.out.println("size: " + size);
+                // System.out.println("size: " + size);
                 assertEquals(size, buggySize);
             } else if (operationNumber == 2 && L.size() > 0) {
                 // getLast
                 int item = L.getLast();
                 int buggyItem = buggyL.getLast();
-                System.out.println("getLast(" + item + ")");
+                // System.out.println("getLast(" + item + ")");
                 assertEquals(item, buggyItem);
             } else if (operationNumber == 3 && L.size() > 0) {
                 // removeLast
                 int item = L.removeLast();
                 int buggyItem = buggyL.removeLast();
-                System.out.println("removeLast(" + item + ")");
+                // System.out.println("removeLast(" + item + ")");
                 assertEquals(item, buggyItem);
             }
         }
