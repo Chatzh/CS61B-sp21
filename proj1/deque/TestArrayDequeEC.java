@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import edu.princeton.cs.algs4.StdRandom;
 import org.junit.Test;
 
-public class ArrayDequeTestMy {
+public class TestArrayDequeEC {
     @Test
     public void randomizedTest() {
         LinkedListDeque<Integer> llDeque = new LinkedListDeque<>();
