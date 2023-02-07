@@ -2,7 +2,7 @@ package deque;
 
 import java.util.Iterator;
 
-public class ArrayDeque<T> implements Deque<T> {
+public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     private T[] items;
     private int size;
 
@@ -119,15 +119,15 @@ public class ArrayDeque<T> implements Deque<T> {
         return true;
     }
 
+    @Override
     public Iterator<T> iterator() {
         return new ArrayDeque.ArrayDequeIterator();
     }
-
-
+    
     private class ArrayDequeIterator implements Iterator<T> {
         private int pos;
 
-        public ArrayDequeIterator() {
+        ArrayDequeIterator() {
             pos = 0;
         }
 
