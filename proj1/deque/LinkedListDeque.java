@@ -128,7 +128,7 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
         if (o == null) {
             return false;
         }
-        if (o.getClass() != this.getClass()) {
+        if (!isDeque(o)) {
             return false;
         }
 
@@ -168,6 +168,15 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
             pos += 1;
             return returnItem;
         }
+    }
+
+    /** If object o is deque then return true. */
+    private boolean isDeque(Object o) {
+        ArrayDeque<Integer> ArrayDeque = new ArrayDeque<>();
+        if (this.getClass() == o.getClass() || o.getClass() == ArrayDeque.getClass()) {
+            return true;
+        }
+        return false;
     }
 
     /** Helper method of getRecursive(). */

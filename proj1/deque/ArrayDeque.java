@@ -102,7 +102,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
         if (o == null) {
             return false;
         }
-        if (o.getClass() != this.getClass()) {
+        if (!isDeque(o)) {
             return false;
         }
 
@@ -123,7 +123,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     public Iterator<T> iterator() {
         return new ArrayDeque.ArrayDequeIterator();
     }
-    
+
     private class ArrayDequeIterator implements Iterator<T> {
         private int pos;
 
@@ -142,6 +142,15 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
             pos += 1;
             return returnItem;
         }
+    }
+
+    /** If object o is deque then return true. */
+    private boolean isDeque(Object o) {
+        LinkedListDeque<Integer> LinkedListDeque = new LinkedListDeque<>();
+        if (this.getClass() == o.getClass() || o.getClass() == LinkedListDeque.getClass()) {
+            return true;
+        }
+        return false;
     }
 
     /** Resizes the underlying array to the target capacity. */
