@@ -1,16 +1,14 @@
 package deque;
 
-import org.junit.Test;
-
 import java.util.Iterator;
 
 public class LinkedListDeque<T> implements Deque<T> {
     private class ListNode {
-        public T item;
-        public ListNode prev;
-        public ListNode next;
+        private T item;
+        private ListNode prev;
+        private ListNode next;
 
-        public ListNode(T i, ListNode p, ListNode n) {
+        ListNode(T i, ListNode p, ListNode n) {
             item = i;
             prev = p;
             next = n;
@@ -120,7 +118,8 @@ public class LinkedListDeque<T> implements Deque<T> {
         return getRecursiveHelper(head.next, index);
     }
 
-    /** If o same as this, return true. */
+    /** If o same as this, return true.
+     *  @source lectureCode-11*/
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -154,7 +153,7 @@ public class LinkedListDeque<T> implements Deque<T> {
     private class LinkListDequeIterator implements Iterator<T> {
         private int pos;
 
-        public LinkListDequeIterator() {
+        LinkListDequeIterator() {
             pos = 0;
         }
 

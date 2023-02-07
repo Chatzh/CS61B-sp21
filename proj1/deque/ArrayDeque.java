@@ -57,6 +57,10 @@ public class ArrayDeque<T> implements Deque<T> {
             return null;
         }
 
+        if ((size < items.length / 4) && (size > 8)) {
+            resize(items.length / 4);
+        }
+
         T x = items[0];
         T[] temp = (T[]) new Object[items.length];
         System.arraycopy(items, 1, temp, 0, size - 1);
