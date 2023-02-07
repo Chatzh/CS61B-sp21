@@ -88,28 +88,31 @@ public class ArrayDeque<T> implements Deque<T> {
         return items[index];
     }
 
-    /** If o same as this, return true. */
+    /** If o same as this, return true.
+     *  @source lectureCode-11*/
     @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-
-        if (o instanceof ArrayDeque otherDeque) {
-            if (this.size != otherDeque.size) {
-                return false;
-            }
-
-            for (int i = 0; i < size; i++) {
-                if (this.get(i) != otherDeque.get(i)) {
-                    return false;
-                }
-            }
-
-            return true;
+        if (o == null) {
+            return false;
+        }
+        if (o.getClass() != this.getClass()) {
+            return false;
         }
 
-        return false;
+        ArrayDeque<T> other = (ArrayDeque<T>) o;
+        if (other.size() != this.size()) {
+            return false;
+        }
+        for (int i = 0; i < size; i++) {
+            if (this.get(i) != other.get(i)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public Iterator<T> iterator() {
