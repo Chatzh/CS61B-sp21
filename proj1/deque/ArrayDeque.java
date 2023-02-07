@@ -96,11 +96,11 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
      *  @source lectureCode-11*/
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
         if (o == null) {
             return false;
+        }
+        if (this == o) {
+            return true;
         }
         if (!isDeque(o)) {
             return false;
@@ -146,8 +146,8 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
 
     /** If object o is deque then return true. */
     private boolean isDeque(Object o) {
-        LinkedListDeque<Integer> LinkedListDeque = new LinkedListDeque<>();
-        if (this.getClass() == o.getClass() || o.getClass() == LinkedListDeque.getClass()) {
+        LinkedListDeque<Integer> linkedListDeque = new LinkedListDeque<>();
+        if (this.getClass() == o.getClass() || o.getClass() == linkedListDeque.getClass()) {
             return true;
         }
         return false;

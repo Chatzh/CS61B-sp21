@@ -7,8 +7,8 @@ import org.junit.Test;
 public class ArrayDequeTestMy {
     @Test
     public void randomizedTest() {
-        LinkedListDeque<Integer> LLDeque = new LinkedListDeque<>();
-        ArrayDeque<Integer> ArrayDeque = new ArrayDeque<>();
+        LinkedListDeque<Integer> llDeque = new LinkedListDeque<>();
+        ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
 
         int N = 50000;
         for (int i = 0; i < N; i += 1) {
@@ -16,33 +16,34 @@ public class ArrayDequeTestMy {
             if (operationNumber == 0) {
                 // addFirst
                 int randVal = StdRandom.uniform(0, 100);
-                ArrayDeque.addFirst(randVal);
-                LLDeque.addFirst(randVal);
-                assertEquals(ArrayDeque.get(0), LLDeque.get(0));
+                arrayDeque.addFirst(randVal);
+                llDeque.addFirst(randVal);
+                assertEquals(arrayDeque.get(0), llDeque.get(0));
             } else if (operationNumber == 1) {
                 // addLast
                 int randVal = StdRandom.uniform(0, 100);
-                ArrayDeque.addLast(randVal);
-                LLDeque.addLast(randVal);
-                assertEquals(ArrayDeque.get(ArrayDeque.size() - 1), LLDeque.get(LLDeque.size() - 1));
+                arrayDeque.addLast(randVal);
+                llDeque.addLast(randVal);
+                assertEquals(arrayDeque.get(arrayDeque.size() - 1),
+                        llDeque.get(llDeque.size() - 1));
             } else if (operationNumber == 2) {
                 // size
-                int size = ArrayDeque.size();
-                int testSize = LLDeque.size();
+                int size = arrayDeque.size();
+                int testSize = llDeque.size();
                 assertEquals(size, testSize);
-            } else if (operationNumber == 3 && ArrayDeque.size() > 0) {
+            } else if (operationNumber == 3 && arrayDeque.size() > 0) {
                 // removeFirst
-                int item = ArrayDeque.removeFirst();
-                int testItem = LLDeque.removeFirst();
+                int item = arrayDeque.removeFirst();
+                int testItem = llDeque.removeFirst();
                 assertEquals(item, testItem);
-            } else if (operationNumber == 4 && ArrayDeque.size() > 0) {
+            } else if (operationNumber == 4 && arrayDeque.size() > 0) {
                 // removeLast
-                int item = ArrayDeque.removeLast();
-                int testItem = LLDeque.removeLast();
+                int item = arrayDeque.removeLast();
+                int testItem = llDeque.removeLast();
                 assertEquals(item, testItem);
-            } else if (operationNumber == 5 && ArrayDeque.size() > 0) {
+            } else if (operationNumber == 5 && arrayDeque.size() > 0) {
                 // equals
-                assertTrue(LLDeque.equals(ArrayDeque));
+                assertTrue(llDeque.equals(arrayDeque));
             }
         }
     }
